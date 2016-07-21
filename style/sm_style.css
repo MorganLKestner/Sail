@@ -1,0 +1,14 @@
+#container {
+	background-color: #7666c6;
+}
+
+
+#background{
+	background-image: url('sm_img/bssms199osap.gif');
+    height: 96%;
+    width: 94%;
+    margin-left: 0px auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px 0px 10px 250px;
+}
