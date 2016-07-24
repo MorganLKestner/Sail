@@ -1,23 +1,39 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="./sm_style.css">
+	<link rel="stylesheet" type="text/css" href="style/sm_style.css">
+	<link href="style/skeleton.css" rel="stylesheet">
 	<title>Sailor Moon Fan Game</title>
 </head>
-<body>
-<div id="container">
-	<div id="background" class = "image">
-	<h1>This is a test</h1>
+<body id= "body">
+	<div class="row" id="row-one">
+		<div id="status-box">STATUS</div>
+		<div id="scoreboard">SCORE BOARD</div>
+	</div><!--row-one-->
+	<div id="container">
+		<div id="background" class = "image">
+			<div id = "hero" class="player">
+			</div> <!-- hero placement -->
+			<div id="enemy" class="player">
+				<p class= "name"></p>
+			</div> <!-- enemy placement -->
+		</div><!--bg image -->
+	<div class="row" id="row-two">
+		<div id="hero-health" class="health-box bottom">
+			<p class= "health"></p>
+			<p class= "power"></p>
+			  
+		</div> <!--hero health -->
+		<div id="enemy-health" class="health-box bottom">
+			<p class= "health"></p>
+			<p class= "power"></p>
+			
+		</div> <!-- enemy health -->
+		<div id="logo" class="bottom"></div> <!-- need image -->
+	</div><!-- row 2 -->
 
-
-
-
-
-
-
-
-
-	</div>
-</div>
-<script type="./sm_script.js"></script>
+</div><!-- container -->
+<script type="text/javascript" src="script/jquery.js"></script>
+<script type="text/javascript" src="script/script.js"></script>
 </body>
 </html>
+<!--  -->

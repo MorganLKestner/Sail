@@ -1,14 +1,94 @@
-#container {
+#body {
 	background-color: #7666c6;
+	margin: 30px;
+}
+#background {
+	background-image: url('../img/background.gif');
+    height: 70%;
+    width: 60%;
+    margin-left: 0px auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 50px 0px 10px 280px;
+    display: flex;
+    border-radius: 1%;
+    box-shadow: 0px 0px 4px 4px rgba(237,231,246,1);
+}
+#row-one{
+	position: relative;
+	display: inline-flex;
+	top: 25px;
+	left: 20.5%;
+	width: 100%;
+}
+#status-box {
+    border-radius: 1%;
+    width: 28%;
+    height: 12%;
+    left: 20.5%;
+    margin:10px;
+    padding: 2px;
+    /*box-shadow: 0px 0px 4px 2px rgba(237,231,246,1);*/
+    background-color: lightgray;
+}
+#scoreboard {
+    border-radius: 1%;
+    width: 28%;
+    height: 12%;
+    left: 23.5%;
+    padding: 2px;
+    margin:10px;
+    /*box-shadow: 0px 0px 4px 2px rgb(87, 79, 101);*/
+    background-color: lightgray;
 }
 
+.health-box {
+	
+}
+#row-two {
+    display: inline-flex;
+    width: 60%;
+    margin-top: 15px;
+}
+.bottom {
+    width: 44%;
+    height: 10%;
+    position: relative;
+    display: inline-flex;
+    left: 15em;
+    /* box-shadow: 0px 0px 4px 2px rgba(237,231,246,1); */
+    background-color: lightgray;
+    padding: 2px;
+    margin-right: 10px;
+    font-family: Raleway;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 5px;
+}
 
-#background{
-	background-image: url('sm_img/bssms199osap.gif');
-    height: 96%;
-    width: 94%;
-    margin-left: 0px auto;
-    background-size: contain;
+#logo {
+    background-image: url('../img/logosm.png');
     background-repeat: no-repeat;
-    margin: 10px 0px 10px 250px;
+    background-size: contain;
+    background-position: 4px;
+}
+
+#hero {
+    background-position: -447px -314px;
+    background-image: url("../img/editsm.png");
+    width: 23em;
+    height: 25em;
+    position: absolute;
+    zoom: 75%;
+    left: 30%;
+    top: 56%;
+}
+
+#enemy{
+    width: 14em;
+    height: 14em;
+    left: 33%;
+    top: 6%;
+    zoom: 226%;
+    position: absolute;
 }
