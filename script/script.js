@@ -76,8 +76,8 @@ var heroHeal = function() {
 var heroAttack = function() {
 	var heroHitRange = Math.floor(Math.random()*(80-1 + 1)+1);
 	if (heroHitRange <= 20) {
-		currentHealth();
 		heroHitRange = 0;
+		currentHealth();
 		return statusBox.text(heroSailorMoon.name + ' missed ' + enemy_name + '!');
 	} else {	
 		if (heroHitRange >= 21) { 
@@ -92,8 +92,8 @@ var heroAttack = function() {
 var opponentAttack = function(){
 	var oppHitRange = Math.floor(Math.random()*(80-1 + 1)+1);
 	if (oppHitRange <= 20) {
-		currentHealth();	
 		oppHitRange = 0;
+		currentHealth();	
 		return statusBox.text( enemy_name + ' missed ' + heroSailorMoon.name + '!');
 	} else {
 		if(oppHitRange >=21) { 
@@ -117,6 +117,7 @@ var attackFunction = $(window).on('keydown',function(e) {
    	  setTimeout(heroAttack, 100);
    	  setTimeout(function(){statusBox.text(enemy_name + ' is ready to fight!')}, 4000);
    	  setTimeout(opponentAttack, 6000);
+   	  setTimeout(function(){statusBox.text(heroSailorMoon.name + ' is ready to fight!')}, 8000);
  	};
 });
 
@@ -135,17 +136,15 @@ var healFunction = $(window).on('keydown',function(e) {
 var checkWinner = function() {
 	//console.log('test meeeeeeee');
 	  if(enemy_health <= 0 && heroSailorMoon.health >= 0) {
-	  	enemy_health = 0;
 	  	clearTimeout(attackFunction);
+	  	enemy_health = 0;
 	    statusBox.text(heroSailorMoon.name  + ' defeated ' +  enemy_name + '!');
 
-	    return 'Sailor Moon'
 	  };
 	  if (enemy_health >= 0 && heroSailorMoon.health <= 0) {
 	  	heroSailorMoon.health = 0;
 	  	clearTimeout(attackFunction);
 	  	statusBox.text( enemy_name  + ' defeated ' +  heroSailorMoon.name + '!');
-	  	return 'enemy'
 	  };
 };
 
@@ -153,13 +152,13 @@ var checkWinner = function() {
 // counter that keeps who dies 
 //resolve a promise for your return
 //instead of a value - a promise with .when
-var counter = 0
-var scoreboard =$('#scoreboard');
-scoreboard.text('Crystal Kingdom: ' + "  " + "   "+ 'Dark Kingdom: ' + " " );
-var keepScore = function() {
+// var counter = 0
+ var scoreboard =$('#scoreboard');
+ scoreboard.text('Crystal Kingdom: ' + "  "+ ' vs ' + "   "+ 'Dark Kingdom: ' + " " );
+// var keepScore = function() {
 
-};
-$.when(checkWinner).then(keepScore);
+// };
+// $.when(checkWinner).then(keepScore);
 
 
 
