@@ -4,23 +4,23 @@ console.log('script loaded');
 //Opponent characters 
 var opponents = [
 	{ name: "Jadeite", // opponets[0].name
-	  img: "img/green.gif",
+	  img: "img/jaidite.png",
 	  health: 100
 	},
 	{ name: "Zoisite",
-	  img: "img/ponytail.gif",
+	  img: "img/zoisite.png",
 	  health: 150
 	},
 	{ name: "Nephrite",
-	  img: "img/purple.gif",
+	  img: "img/Nephrite.png",
 	  health: 200	
 	},
 	{ name: "Kunzite",
-	  img: "img/silver.gif",
+	  img: "img/kunzite.png",
 	  health: 250
 	},
 	{ name: "Queen Beryl",
-	  img: "img/queenberyl.gif",
+	  img: "img/qb.gif",
 	  health: 300
 	}
 ];
@@ -48,12 +48,6 @@ var statusBox =$('#status-box');
 var heroHealthBox =$('#hero-health');
 var enemyHealthBox =$('#enemy-health');
 
-//scoreboard
-// counter that keeps who dies 
-var counter = 0;
-var scoreboard =$('#scoreboard');
-var keepScore = function() { 
-};
 
 //get order of opponents 
 var getOpponents = function(){
@@ -89,10 +83,10 @@ var heroAttack = function() {
 		if (heroHitRange >= 21) { 
 		enemy_health -= heroHitRange;
 		currentHealth();
-		checkWinner();
-		return statusBox.text(heroSailorMoon.name + ' hit ' + enemy_name + ' ' +  heroHitRange + '!');
+		statusBox.text(heroSailorMoon.name + ' hit ' + enemy_name + ' ' +  heroHitRange + '!');
 		}
 	  } 
+	  checkWinner();
 };
 //opponent attack logic
 var opponentAttack = function(){
@@ -105,10 +99,10 @@ var opponentAttack = function(){
 		if(oppHitRange >=21) { 
 			heroSailorMoon.health -= oppHitRange;
 			currentHealth();
-			checkWinner();	
-			return statusBox.text(enemy_name + ' hit ' + heroSailorMoon.name  + ' ' +  oppHitRange + '!');
+			statusBox.text(enemy_name + ' hit ' + heroSailorMoon.name  + ' ' +  oppHitRange + '!');
 		} 
 	  }
+	  checkWinner();
 };
 
 //adds current health in health boxes
@@ -120,11 +114,12 @@ currentHealth();
 //keydown hero attack 
 var attackFunction = $(window).on('keydown',function(e) {
     if(e.which === 65 || e.keycode === 65) {
-   	setTimeout(heroAttack, 100);
-   	setTimeout(function(){statusBox.text(enemy_name + ' is ready to fight!')}, 4000);
-   	setTimeout(opponentAttack, 6000);
+   	  setTimeout(heroAttack, 100);
+   	  setTimeout(function(){statusBox.text(enemy_name + ' is ready to fight!')}, 4000);
+   	  setTimeout(opponentAttack, 6000);
  	};
 });
+
 //keydown heal hero
 var healFunction = $(window).on('keydown',function(e) {
     if(e.which === 90 || e.keycode === 90) {
@@ -133,26 +128,47 @@ var healFunction = $(window).on('keydown',function(e) {
     setTimeout(opponentAttack, 4000)
  	};
 });
-// <= less than or equal to
-// >= greater than or equal to 
+//reminder  <= less than or equal to
+//reminder >= greater than or equal to 
 
 //check for winner 
 var checkWinner = function() {
+	//console.log('test meeeeeeee');
 	  if(enemy_health <= 0 && heroSailorMoon.health >= 0) {
 	  	enemy_health = 0;
-	  	console.log(test meeeeeeee);
 	  	clearTimeout(attackFunction);
-	    return statusBox.text(heroSailorMoon.name  + 'defeated ' +  enemy_name + '!');
+	    statusBox.text(heroSailorMoon.name  + ' defeated ' +  enemy_name + '!');
+
+	    return 'Sailor Moon'
 	  };
 	  if (enemy_health >= 0 && heroSailorMoon.health <= 0) {
 	  	heroSailorMoon.health = 0;
-	  	console.log(test meeeeeeee);
 	  	clearTimeout(attackFunction);
-	  	return statusBox.text( enemy_name  + 'defeated ' +  heroSailorMoon + '!');
-	  	};
+	  	statusBox.text( enemy_name  + ' defeated ' +  heroSailorMoon.name + '!');
+	  	return 'enemy'
+	  };
 };
-checkWinner();
-console.log(checkWinner());
+
+//scoreboard
+// counter that keeps who dies 
+//resolve a promise for your return
+//instead of a value - a promise with .when
+var counter = 0
+var scoreboard =$('#scoreboard');
+scoreboard.text('Crystal Kingdom: ' + "  " + "   "+ 'Dark Kingdom: ' + " " );
+var keepScore = function() {
+
+};
+$.when(checkWinner).then(keepScore);
 
 
-}); //ready function 
+
+/// animation
+var heroPlace = $('#hero');
+heroPlace.append('<img class= "img" src="http://4.bp.blogspot.com/-j3EJifjKGWk/UyR8ne787_I/AAAAAAAAAf4/mjO22FzasKM/s1600/Sailor+Moon.gif">');
+ // heroPlace.toggle(function(){
+	// 	heroPlace.src = 'http://1.bp.blogspot.com/-XW3JNKS5qLw/UyXuBc48ejI/AAAAAAAAAjI/CKGW27fMmDE/s1600/Moon+Gorgeus+Meditation+%28Classical%29.gif' 	
+	//   });
+
+});
+ //ready function 

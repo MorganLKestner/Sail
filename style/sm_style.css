@@ -12,14 +12,19 @@
     margin: 50px 0px 10px 280px;
     display: flex;
     border-radius: 1%;
-    box-shadow: 0px 0px 4px 4px rgba(237,231,246,1);
+    box-shadow: -1px 2px 6px 6px rgba(48,32,128,1);
 }
 #row-one{
 	position: relative;
 	display: inline-flex;
 	top: 25px;
 	left: 20.5%;
-	width: 100%;
+	width: 100%; 
+}
+.top {
+    box-shadow: 2px 5px 5px 3px rgba(48,32,128,1);
+    line-height: 75px;
+
 }
 #status-box {
     border-radius: 1%;
@@ -30,6 +35,9 @@
     padding: 2px;
     /*box-shadow: 0px 0px 4px 2px rgba(237,231,246,1);*/
     background-color: lightgray;
+    font-family: 'Rochester', cursive;    text-align: center;
+    text-align: center;
+    letter-spacing: 1.5px;
 }
 #scoreboard {
     border-radius: 1%;
@@ -40,6 +48,9 @@
     margin:10px;
     /*box-shadow: 0px 0px 4px 2px rgb(87, 79, 101);*/
     background-color: lightgray;
+    font-family: 'Rochester', cursive;    text-align: center;
+    text-align: center;
+    letter-spacing: 1.5px;
 }
 
 .health-box {
@@ -56,14 +67,17 @@
     position: relative;
     display: inline-flex;
     left: 15em;
-    /* box-shadow: 0px 0px 4px 2px rgba(237,231,246,1); */
+    box-shadow: 2px 5px 5px 3px rgba(48,32,128,1);
     background-color: lightgray;
     padding: 2px;
     margin-right: 10px;
-    font-family: Raleway;
+    font-family: 'Rochester', cursive;    text-align: center;
     text-align: center;
-    font-weight: 600;
+    /*font-weight: 600;*/
     margin-top: 5px;
+    letter-spacing: 1.5px;
+    justify-content: center;
+    line-height: 75px;
 }
 
 #logo {
@@ -75,20 +89,45 @@
 
 #hero {
     background-position: -447px -314px;
-    background-image: url("../img/editsm.png");
+    /*background-image: url("../img/editsm.png");*/
     width: 23em;
     height: 25em;
     position: absolute;
-    zoom: 75%;
     left: 30%;
-    top: 56%;
+    top: 54%;
+
+}
+.img {
+    zoom: 3;
 }
 
-#enemy{
-    width: 14em;
-    height: 14em;
-    left: 33%;
-    top: 6%;
-    zoom: 226%;
-    position: absolute;
+#enemy {
+    width: 5em;
+    height: 8em;
+    left: 62%;
+    top: 28%;
+    zoom: 221%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+
+}
+#enemy {
+  animation: pulse .7s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    top: 28%;
+
+  }
+  50% {
+    top: 29%;
+
+  }
+  100% {
+    top: 28%;
+
+  }
 }
