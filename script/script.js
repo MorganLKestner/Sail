@@ -161,7 +161,6 @@ var checkWinner = function() {
 // $.when(checkWinner).then(keepScore);
 
 
-
 /// animation
 var heroPlace = $('#hero');
 heroPlace.append('<img class= "img" src="http://4.bp.blogspot.com/-j3EJifjKGWk/UyR8ne787_I/AAAAAAAAAf4/mjO22FzasKM/s1600/Sailor+Moon.gif">');
